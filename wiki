@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>República de Celania - Wikipedia, la enciclopedia libre</title>
+    <style>
+        /* Estilos estilo Wikipedia Limpios y Modernos */
+        body {
+            font-family: sans-serif;
+            background-color: #f6f6f6;
+            color: #202122;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #a2a9b1;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-family: 'Georgia', serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        main {
+            flex: 3;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #a2a9b1;
+            border-radius: 2px;
+            min-width: 300px;
+        }
+        
+        /* La famosa Ficha de País (Infobox) estilo Wikipedia Profesional */
+        .infobox {
+            flex: 1;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 5px;
+            font-size: 13px;
+            min-width: 300px;
+            max-width: 340px;
+            height: fit-content;
+        }
+        .infobox-title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #cedff2;
+            padding: 6px;
+            margin-bottom: 5px;
+        }
+        .infobox-media {
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .infobox-media img {
+            max-width: 90%;
+            height: auto;
+            border: 1px solid #a2a9b1;
+        }
+        .infobox-caption {
+            font-size: 11px;
+            color: #555;
+            margin-top: 3px;
+            text-align: center;
+        }
+        .infobox-header {
+            background-color: #cedff2;
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 4px;
+        }
+        .infobox-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .infobox-table td {
+            padding: 5px 4px;
+            vertical-align: top;
+            border-bottom: 1px solid #eaecf0;
+        }
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            padding-left: 5px !important;
+        }
+        .infobox-sublabel {
+            padding-left: 15px !important;
+            color: #444;
+        }
+        .infobox-data {
+            width: 60%;
+        }
+
+        /* Indicadores de Wikipedia de Tendencia y Clasificación */
+        .trend-up {
+            color: #00af89;
+            font-weight: bold;
+        }
+        .trend-down {
+            color: #d33d33;
+            font-weight: bold;
+        }
+        .idh-box {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #ffcc00; /* Color oficial Wikipedia para IDH Medio */
+            border: 1px solid #333;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+        
+        h2 {
+            font-family: 'Georgia', serif;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-family: sans-serif;
+            margin-top: 20px;
+            color: #444;
+        }
+        .index-box {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 10px 15px;
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .index-box b {
+            display: block;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        ol a {
+            color: #3366cc;
+            text-decoration: none;
+        }
+        ol a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WikiCelania</h1>
+    </header>
+
+    <div class="container">
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        <main>
+            <h2>República de Celania</h2>
+            <p>La <strong>República de Celania</strong> es un país soberano insular compuesto por 8 regiones estratégicas que incluyen la Región de Valdena (Distrito Federal), Iradia, Otresa, Arkastra, Cirsena, Austra, Luva y Meridiona, y cuenta con una población de <strong>32.7 millones de habitantes</strong>. Fundada tras un complejo proceso independentista y moldeada por su reciente evolución política, Celania destaca por su rica cultura, su inestabilidad institucional contemporánea y su alto impacto económico en la región derivado de sus sectores energético, minero y aduanero.</p>
+            
+            <!-- Índice de la página -->
+            <div class="index-box">
+                <b>Índice</b>
+                <ol>
+                    <li><a href="#historia">1. Historia</a>
+                        <ol>
+                            <li><a href="#origenes">1.1 Orígenes y Fundación</a></li>
+                            <li><a href="#independencia">1.2 La Era de la Independencia</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#gobierno">2. Gobierno y política</a></li>
+                    <li><a href="#cultura">3. Cultura</a></li>
+                </ol>
+            </div>
+
+            <section id="historia">
+                <h2>1. Historia</h2>
+                
+                <h3 id="origenes">1.1 Orígenes y Fundación</h3>
+                <p>En los inicios, el territorio de Celania estaba habitado por diversas culturas originarias que aprovecharon la abundancia de recursos en Otresa y las cuencas de Cirsena. Durante la época colonial, la isla se convirtió en un enclave estratégico de la Corona Española, utilizado para vigilar las rutas del Pacífico Sur y resguardar el paso hacia el Cabo de Hornos. El establecimiento de las primeras fronteras formales unificó a las provincias bajo una identidad común. La consolidación del territorio estuvo marcada por la necesidad de centralizar el poder en el Distrito Federal (Valdena) para coordinar la explotación de recursos, fortificar las costas meridionales y proteger las valiosas rutas comerciales que conectan la Costa Este con el resto del continente.</p>
+                
+                <h3 id="independencia">1.2 La Era de la Independencia</h3>
+                <p>El punto de inflexión de la nación ocurrió cuando las tensiones políticas con la metrópolis y el deseo de soberanía absoluta frente a la influencia externa provocaron una revolución civil y militar. Aprovechando el caos de las guerras emancipadoras americanas, y contando con el apoyo clave de la escuadra chilena, los patriotas celanienses expulsaron al último gobernador hispano, proclamando la independencia oficial el <strong>12 de febrero de 1818</strong>.</p>
+                <p>Tras una serie de batallas clave y tratados estratégicos, el país superó una convulsa era de caudillismo militar entre el norte comercial y el sur minero mediante la redacción de la <strong>Constitución de 1833</strong>, que impuso una estabilidad centralista. A partir de 1840, el descubrimiento del guano, el salitre y el carbón atrajo oleadas de inmigración masiva británica, alemana y croata, desatando una Revolución Industrial isleña. Durante la Guerra del Pacífico (1879-1885), Celania mantuvo una calculada neutralidad que favoreció el abastecimiento secreto naval en sus puertos, consolidando una burguesía opulenta a finales del siglo XIX (la <em>Belle Époque</em> celaniense) pero sembrando, al mismo tiempo, las bases de los primeros movimientos obreros y sindicales de la isla.</p>
+            </section>
+
+            <section id="gobierno">
+                <h2>2. Gobierno y política</h2>
+                <p>Celania se organiza como una república constitucional. El aparato de seguridad del Estado se fundamenta en un equilibrio de poderes civiles y militares que arrastra su doctrina desde las fortificaciones del siglo XIX: la <strong>Policía Nacional</strong> cuenta con un pie de fuerza de 210,000 agentes dedicados al orden interno, mientras que las Fuerzas Armadas operan a través del <strong>SIMC</strong> (<em>Servicio de Infantería y Marina</em>) enfocado en la defensa terrestre e insular, y el <strong>SNS</strong> (<em>Servicio Nacional de Seguridad</em>), herederos de las viejas guarniciones costeras, hoy a cargo de la soberanía aero-naval y la contrainteligencia digital.</p>
+            </section>
+
+            <section id="cultura">
+                <h2>3. Cultura</h2>
+                <p>Las tradiciones de Celania reflejan la identidad de sus ciudadanos, destacando en aspectos como el arte, las festividades nacionales y sus costumbres únicas, fuertemente influenciadas por el sincretismo entre el legado criollo y la inmigración europea decimonónica. La fecha más trascendental dentro del calendario nacional es el <strong>23 de mayo</strong> conocido popularmente en la historia como el <em>Día de los Girasoles</em>, una conmemoración histórica que paraliza el país y evoca los valores fundamentales de la patria, sirviendo frecuentemente como un catalizador de grandes movimientos sociales, discursos políticos y transformaciones en la historia viva de la República.</p>
+            </section>
+        </main>
+
+        <!-- FICHA DE PAÍS (INFOBOX) -->
+        <aside class="infobox">
+            <div class="infobox-title">República de Celania</div>
+            
+            <div class="infobox-media">
+                <img src="https://i.ibb.co/hxY8vjR6/Rep-blica-de-Celania.png" alt="Bandera de la República de Celania">
+                <div class="infobox-caption">Bandera Nacional de Celania</div>
+            </div>
+
+            <table class="infobox-table">
+                <tr>
+                    <td class="infobox-label">Capital</td>
+                    <td class="infobox-data">Distrito Federal (Valdena)<br> 28°30' S 85°00' O</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Ciudad más poblada</td>
+                    <td class="infobox-data">Valdena</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Idioma oficial</td>
+                    <td class="infobox-data">Español<br>• <i>Cooficiales:</i> Lenguas indígenas locales, inglés y alemán</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Gentilicio</td>
+                    <td class="infobox-data">Celaniense</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Forma de gobierno</td>
+                    <td class="infobox-data">República constitucional presidencialista</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">• Presidente</td>
+                    <td class="infobox-data"><b>Sebastián Piñera Echenique</b></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">• Vicepresidenta</td>
+                    <td class="infobox-data"><b>Keiko Fujimori</b></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">• Pres. del Congreso</td>
+                    <td class="infobox-data"><i>Vacante</i> <span class="trend-down">(Debido a la disolución parlamentaria)</span></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Órgano legislativo</td>
+                    <td class="infobox-data">Parlamento de Celania (Senado y Cámara de Diputados)</td>
+                </tr>
+                
+                <!-- SECCIÓN SUPERFICIE -->
+                <tr>
+                    <th colspan="2" class="infobox-header">Superficie (Puesto 22.º)</th>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Total</td>
+                    <td class="infobox-data">1,250,000 km²</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Agua</td>
+                    <td class="infobox-data">2.4%</td>
+                </tr>
+
+                <!-- SECCIÓN POBLACIÓN -->
+                <tr>
+                    <th colspan="2" class="infobox-header">Población total (Puesto 40.º)</th>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Estimación (2031)</td>
+                    <td class="infobox-data">32,700,000 hab.</td>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Densidad</td>
+                    <td class="infobox-data">26.16 hab./km²</td>
+                </tr>
+
+                <!-- SECCIÓN ECONOMÍA -->
+                <tr>
+                    <th colspan="2" class="infobox-header">PIB (Nominal) [Puesto 72.º]</th>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Total (2031)</td>
+                    <td class="infobox-data">1,132.01 M USD<br><small>Equivalente a 153,354 ₡ celaneses</small></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label infobox-sublabel">• Per cápita</td>
+                    <td class="infobox-data">51.45 USD<br><small>Equivalente a 6,970 ₡ celaneses</small></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Ratio Deuda / PIB</td>
+                    <td class="infobox-data">7.9% <small>(Aprobado por el BCC)</small></td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Balance Fiscal</td>
+                    <td class="infobox-data">
+                        <span class="trend-up">▲ +56.25 M USD</span> <small class="trend-up">(+7,620 ₡)</small><br>
+                        • Ingresos: 73.57 M USD<br>
+                        • Gastos: 17.32 M USD
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Deuda Pública Total</td>
+                    <td class="infobox-data">
+                        <span class="trend-down">89.43 M USD</span> <small class="trend-down">(12,115 ₡)</small><br>
+                        • Interna: 36.91 M USD<br>
+                        • Externa: 52.52 M USD
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">IDH (2031)</td>
+                    <td class="infobox-data">
+                        <span class="idh-box"></span> <b>0.661</b> -- <span style="color: #b38600; font-weight: bold;">Medio</span> (Puesto 124.º)<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Moneda</td>
+                    <td class="infobox-data">
+                        <b>Celán (₡)</b><br>
+                        <small>Cambio: 1 USD = 135.47 ₡<br>1 EUR = 157.03 ₡</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infobox-label">Huso horario</td>
+                    <td class="infobox-data">UTC-5 y UTC-6</td>
+                </tr>
+            </table>
+        </aside>
+
+    </div>
+
+</body>
+</html>
+
+
