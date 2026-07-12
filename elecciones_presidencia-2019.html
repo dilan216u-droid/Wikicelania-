@@ -65,17 +65,17 @@
         @media (min-width: 992px) {
             .content-layout { flex-direction: row; }
             .body-text { flex: 3; }
-            .infobox { flex: 1; min-width: 330px; max-width: 330px; }
+            .infobox { flex: 1; min-width: 335px; max-width: 335px; }
         }
 
         p { margin: 0 0 16px 0; text-align: justify; }
         h2 { font-family: 'Linux Libertine', 'Georgia', serif; font-weight: normal; font-size: 22px; border-bottom: 1px solid var(--border-wiki); padding-bottom: 4px; margin-top: 32px; margin-bottom: 12px; }
 
-        /* TRUE WIKIPEDIA ELECTION INFOBOX */
+        /* INFOBOX */
         .infobox { background: #f8f9fa; border: 1px solid var(--border-wiki); padding: 3px; font-size: 12px; height: fit-content; width: 100%; }
         .infobox-nav { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 4px 5px; border-bottom: 1px solid var(--border-wiki); }
         .infobox-flag { width: 34px; height: 22px; border: 1px solid var(--border-wiki); }
-        .infobox-title { text-align: center; font-size: 15px; font-weight: bold; padding: 8px 0 4px 0; font-family: sans-serif; }
+        .infobox-title { text-align: center; font-size: 15px; font-weight: bold; padding: 8px 0 4px 0; }
         .infobox-subtitle { text-align: center; font-size: 12px; margin-bottom: 8px; color: var(--text-muted); }
         
         .infobox-table { width: 100%; border-collapse: collapse; }
@@ -84,7 +84,12 @@
         .infobox-data { text-align: right; }
         .infobox-section-title { text-align: center; font-weight: bold; padding: 6px 0; border-top: 1px solid var(--border-wiki); background: #eaecf0; margin-top: 5px; }
 
-        /* CANDIDATES GRID (ESTILO WIKIPEDIA HORIZONTAL) */
+        /* NUEVAS BARRAS DE PROGRESO CORREGIDAS Y MÁS GRANDES */
+        .wiki-progress-wrapper { width: 100%; height: 20px; background-color: #e8e8e8; border: 1px solid #b0b0b0; padding: 2px; position: relative; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); }
+        .wiki-progress-inner { height: 100%; width: 100%; }
+        .wiki-progress-text { position: absolute; right: 6px; top: 0; font-size: 11px; font-weight: bold; color: #000; line-height: 18px; z-index: 2; }
+
+        /* TABLA DE CANDIDATOS */
         .candidates-table { width: 100%; border-collapse: collapse; margin-top: 4px; table-layout: fixed; }
         .candidates-table td { text-align: center; vertical-align: top; padding: 4px 2px; font-size: 11px; }
         
@@ -96,10 +101,6 @@
         
         .cand-votes { font-size: 11px; display: block; margin-top: 4px; }
         .cand-percent { font-size: 13px; font-weight: bold; display: block; margin-bottom: 4px; }
-
-        /* MINI BARRAS DE PORCENTAJE SIMÉTRICAS */
-        .cand-bar-container { width: 90%; height: 14px; background-color: #eee; border: 1px solid #aaa; margin: 2px auto; }
-        .cand-bar { height: 100%; width: 100%; }
 
         /* LEYENDA Y MAPA */
         .wiki-map-legend { display: flex; justify-content: space-around; padding: 6px; background: #fff; border: 1px solid var(--border-sub); font-size: 11px; margin-top: 4px; }
@@ -146,7 +147,7 @@
                     <p>La jornada electoral concluyó con una participación histórica del 66.69% de los electores registrados. La candidata Beatriz Sánchez obtuvo una victoria matemática exacta del 50.00% de los votos válidos. Su principal contendiente, José Páez del oficialismo (FCC), logró adjudicarse la victoria en 8 estados clave del cordón industrial, pero no fue suficiente para superar la densa votación obtenida por la UP en los 14 estados restantes del territorio, consolidando así el cambio de gobierno para el periodo constitucional correspondiente.</p>
                 </div>
 
-                <!-- INFOBOX REESTRUCTURADO COMO WIKIPEDIA REAL -->
+                <!-- INFOBOX TOTALMENTE REDISEÑADO -->
                 <aside class="infobox">
                     <div class="infobox-nav">
                         <span>← <a href="#">2015</a></span>
@@ -162,13 +163,36 @@
                             <td class="infobox-label">Fecha</td>
                             <td class="infobox-data">18 de agosto de 2019</td>
                         </tr>
+                    </table>
+
+                    <div class="infobox-section-title">Demografía electoral</div>
+                    <table class="infobox-table">
                         <tr>
-                            <td class="infobox-label">Participación</td>
-                            <td class="infobox-data">66.69%</td>
+                            <td class="infobox-label">Reg. electorales</td>
+                            <td class="infobox-data">17 157 000</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Votos emitidos</td>
+                            <td class="infobox-data">11 442 003</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label" style="padding-bottom: 2px;">Participación</td>
+                            <td class="infobox-data" style="font-weight: bold; padding-bottom: 2px;">66.69%</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding: 2px 4px 6px 4px;">
+                                <!-- NUEVA BARRA DE PARTICIPACIÓN CON RECTÁNGULO FLOTANTE -->
+                                <div class="wiki-progress-wrapper">
+                                    <div class="wiki-progress-inner" style="background-color: #008000; width: 66.69%;"></div>
+                                    <div class="wiki-progress-text">66.69%</div>
+                                </div>
+                            </td>
                         </tr>
                     </table>
 
-                    <!-- TABLA COMPARTIDA HORIZONTAL -->
+                    <div class="infobox-section-title">Resultados Candidatos</div>
+
+                    <!-- TABLA COMPARTIDA HORIZONTAL CON NUEVO FORMATO DE BARRAS -->
                     <table class="candidates-table">
                         <tr>
                             <td><div class="cand-color-line" style="background-color: #c00;"></div></td>
@@ -196,14 +220,21 @@
                             <td><span class="cand-percent">12.50%</span></td>
                         </tr>
                         <tr>
+                            <!-- NUEVAS BARRAS DE PARTICIPANTES MÁS GRANDE + MARGEN INTERIOR -->
                             <td>
-                                <div class="cand-bar-container"><div class="cand-bar" style="background-color: #c00; width: 100%;"></div></div>
+                                <div class="wiki-progress-wrapper">
+                                    <div class="wiki-progress-inner" style="background-color: #c00; width: 50.00%;"></div>
+                                </div>
                             </td>
                             <td>
-                                <div class="cand-bar-container"><div class="cand-bar" style="background-color: #0056b3; width: 75%;"></div></div>
+                                <div class="wiki-progress-wrapper">
+                                    <div class="wiki-progress-inner" style="background-color: #0056b3; width: 37.50%;"></div>
+                                </div>
                             </td>
                             <td>
-                                <div class="cand-bar-container"><div class="cand-bar" style="background-color: #ffcc00; width: 25%;"></div></div>
+                                <div class="wiki-progress-wrapper">
+                                    <div class="wiki-progress-inner" style="background-color: #ffcc00; width: 12.50%;"></div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -242,3 +273,4 @@
     </div>
 </body>
 </html>
+    
