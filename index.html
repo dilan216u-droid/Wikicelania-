@@ -1,416 +1,385 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>República de Celania - Wikipedia, la enciclopedia libre</title>
     <style>
-        /* Estilos estilo Wikipedia Limpios y Modernos */
+        /* VARIABLES DE DISEÑO (Estilo Wikipedia Vector 2022) */
+        :root {
+            --bg-main: #f8f9fa;
+            --bg-content: #ffffff;
+            --text-color: #202122;
+            --text-muted: #54595d;
+            --link-color: #3366cc;
+            --link-hover: #447ff5;
+            --border-wiki: #a2a9b1;
+            --border-sub: #eaecf0;
+            --infobox-header: #cedff2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
-            background-color: #f6f6f6;
-            color: #202122;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            font-size: 14px;
         }
+
+        /* BARRA DE NAVEGACIÓN SUPERIOR PROFESIONAL */
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #a2a9b1;
-            padding: 10px 20px;
+            background-color: var(--bg-content);
+            border-bottom: 1px solid var(--border-wiki);
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-brand img {
+            height: 32px;
+            width: auto;
+        }
+
         header h1 {
             margin: 0;
-            font-size: 24px;
-            font-family: 'Georgia', serif;
+            font-size: 20px;
+            font-family: 'Linux Libertine', 'Georgia', serif;
+            font-weight: normal;
         }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+
+        .search-box {
+            position: relative;
         }
-        main {
-            flex: 3;
-            background: #ffffff;
-            padding: 20px;
-            border: 1px solid #a2a9b1;
-            border-radius: 2px;
-            min-width: 300px;
-        }
-        
-        /* La famosa Ficha de País (Infobox) estilo Wikipedia Profesional */
-        .infobox {
-            flex: 1;
-            background: #f8f9fa;
-            border: 1px solid #a2a9b1;
-            padding: 5px;
+
+        .search-box input {
+            border: 1px solid var(--border-wiki);
+            padding: 6px 12px;
             font-size: 13px;
-            min-width: 300px;
-            max-width: 340px;
-            height: fit-content;
+            background-color: var(--bg-main);
+            border-radius: 2px;
+            width: 240px;
+            transition: all 0.2s;
         }
-        .infobox-title {
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #cedff2;
-            padding: 6px;
+
+        .search-box input:focus {
+            outline: none;
+            background-color: var(--bg-content);
+            border-color: var(--link-color);
+            box-shadow: inset 0 0 0 1px var(--link-color);
+        }
+
+        /* CONTENEDOR PRINCIPAL FLEXIBLE Y RESPONSIVE */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+        }
+
+        /* MENÚ LATERAL TIPO WIKIPEDIA */
+        .sidebar {
+            width: 100%;
+            background: var(--bg-main);
+            padding: 20px 15px;
+            border-bottom: 1px solid var(--border-wiki);
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                width: 180px;
+                min-width: 180px;
+                border-bottom: none;
+                border-right: 1px solid transparent;
+            }
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .sidebar a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* ARTÍCULO PRINCIPAL */
+        main {
+            flex: 1;
+            background: var(--bg-content);
+            padding: 24px 30px;
+            border-left: 1px solid var(--border-wiki);
+            min-width: 0;
+        }
+
+        .article-title {
+            font-family: 'Linux Libertine', 'Georgia', serif;
+            font-size: 32px;
+            font-weight: normal;
+            border-bottom: 1px solid var(--border-wiki);
+            padding-bottom: 3px;
+            margin-top: 0;
             margin-bottom: 5px;
         }
+
+        .article-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .content-layout {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 25px;
+        }
+
+        @media (min-width: 992px) {
+            .content-layout {
+                flex-direction: row;
+            }
+            .body-text {
+                flex: 3;
+            }
+            .infobox {
+                flex: 1;
+                min-width: 330px;
+                max-width: 330px;
+            }
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            text-align: justify;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-family: 'Linux Libertine', 'Georgia', serif;
+            font-weight: normal;
+            font-size: 22px;
+            border-bottom: 1px solid var(--border-wiki);
+            padding-bottom: 4px;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .toc {
+            background: var(--bg-main);
+            border: 1px solid var(--border-wiki);
+            padding: 12px 20px 12px 12px;
+            display: inline-block;
+            margin: 15px 0 25px 0;
+            font-size: 13px;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .toc ul ul {
+            padding-left: 20px;
+        }
+
+        .toc-number {
+            color: var(--text-color);
+            margin-right: 4px;
+        }
+
+        .infobox {
+            background: var(--bg-main);
+            border: 1px solid var(--border-wiki);
+            padding: 3px;
+            font-size: 12px;
+            height: fit-content;
+            align-self: flex-start;
+        }
+
+        .infobox-title {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: var(--infobox-header);
+            padding: 8px;
+            margin-bottom: 4px;
+        }
+
         .infobox-media {
             text-align: center;
-            margin-bottom: 10px;
-            padding: 5px;
+            background: #fff;
+            border: 1px solid var(--border-sub);
+            padding: 8px;
+            margin-bottom: 6px;
         }
+
         .infobox-media img {
-            max-width: 90%;
+            max-width: 100%;
             height: auto;
-            border: 1px solid #a2a9b1;
         }
+
         .infobox-caption {
             font-size: 11px;
-            color: #555;
-            margin-top: 3px;
-            text-align: center;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
+
         .infobox-header {
-            background-color: #cedff2;
+            background-color: var(--infobox-header);
             text-align: center;
             font-weight: bold;
-            font-size: 13px;
             padding: 4px;
         }
+
         .infobox-table {
             width: 100%;
             border-collapse: collapse;
         }
+
         .infobox-table td {
-            padding: 5px 4px;
+            padding: 4px 6px;
             vertical-align: top;
-            border-bottom: 1px solid #eaecf0;
-        }
-        .infobox-label {
-            font-weight: bold;
-            width: 40%;
-            padding-left: 5px !important;
-        }
-        .infobox-sublabel {
-            padding-left: 15px !important;
-            color: #444;
-        }
-        .infobox-data {
-            width: 60%;
+            border-bottom: 1px solid var(--border-sub);
         }
 
-        /* Indicadores de Wikipedia de Tendencia y Clasificación */
-        .trend-up {
-            color: #00af89;
+        .infobox-label {
             font-weight: bold;
+            width: 45%;
         }
-        .trend-down {
-            color: #d33d33;
-            font-weight: bold;
+
+        .infobox-sublabel {
+            padding-left: 15px !important;
+            font-weight: normal;
         }
+
+        .infobox-data {
+            width: 55%;
+        }
+
+        .trend-up { color: #00af89; font-weight: bold; }
+        .trend-down { color: #d33d33; font-weight: bold; }
+        
         .idh-box {
             display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: #ffcc00; /* Color oficial Wikipedia para IDH Medio */
+            width: 10px;
+            height: 10px;
+            background-color: #ffcc00;
             border: 1px solid #333;
-            margin-right: 4px;
-            vertical-align: middle;
+            margin-right: 5px;
         }
-        
-        h2 {
-            font-family: 'Georgia', serif;
-            border-bottom: 1px solid #a2a9b1;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        h3 {
-            font-family: sans-serif;
-            margin-top: 20px;
-            color: #444;
-        }
-        .index-box {
-            background: #f8f9fa;
-            border: 1px solid #a2a9b1;
-            padding: 10px 15px;
-            display: inline-block;
+
+        .wiki-table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 15px 0;
-            font-size: 14px;
+            font-size: 13px;
         }
-        .index-box b {
-            display: block;
-            text-align: center;
-            margin-bottom: 5px;
+
+        .wiki-table th {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-wiki);
+            padding: 8px;
+            font-weight: bold;
+            text-align: left;
         }
-        ol {
-            margin: 0;
-            padding-left: 20px;
+
+        .wiki-table td {
+            border: 1px solid var(--border-wiki);
+            padding: 7px;
         }
-        ol a {
-            color: #3366cc;
-            text-decoration: none;
+
+        .wiki-table tr:hover {
+            background-color: #f8f9fa;
         }
-        ol a:hover {
-            text-decoration: underline;
+
+        .party-bar-container {
+            background-color: #eee;
+            border-radius: 2px;
+            width: 100%;
+            height: 12px;
+            display: inline-block;
+        }
+
+        .party-bar {
+            height: 100%;
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>WikiCelania</h1>
+        <div class="header-brand">
+            <svg height="24" viewBox="0 0 24 24" width="24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <h1>WikiCelania</h1>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar en WikiCelania">
+        </div>
     </header>
 
     <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Portada</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#gobierno">Gobierno y política</a></li>
+                <li><a href="#elecciones">Elecciones generales</a></li>
+                <li><a href="#cultura">Cultura</a></li>
+            </ul>
+        </nav>
         
-        <!-- CONTENIDO PRINCIPAL -->
-        <main>
-            <h2>República de Celania</h2>
-            <p>La <strong>República de Celania</strong> es un país soberano insular compuesto por 8 regiones estratégicas que incluyen la Región de Valdena (Distrito Federal), Iradia, Otresa, Arkastra, Simósie, Cirsena, Austra, Luva, y cuenta con una población de <strong>32.7 millones de habitantes</strong>. Fundada tras un complejo proceso independentista y moldeada por su reciente evolución política, Celania destaca por su rica cultura, su inestabilidad institucional contemporánea y su alto impacto económico en la región derivado de sus sectores energético, minero y aduanero.</p>
-            
-            <!-- Índice de la página -->
-            <div class="index-box">
-                <b>Índice</b>
-                <ol>
-                    <li><a href="#historia">1. Historia</a>
-                        <ol>
-                            <li><a href="#origenes">1.1 Orígenes y Fundación</a></li>
-                            <li><a href="#independencia">1.2 La Era de la Independencia</a></li>
-                        </ol>
-                    </li>
-                    <li><a href="#gobierno">2. Gobierno y política</a></li>
-                    <li><a href="#cultura">3. Cultura</a></li>
-                </ol>
-            </div>
-
-            <section id="historia">
-                <h2>1. Historia</h2>
-                
-                <h3 id="origenes">1.1 Orígenes y Fundación</h3>
-                <p>En los inicios, el territorio de Celania estaba habitado por diversas culturas originarias que aprovecharon la abundancia de recursos en Otresa y las cuencas de Cirsena. Durante la época colonial, la isla se convirtió en un enclave estratégico de la Corona Española, utilizado para vigilar las rutas del Pacífico Sur y resguardar el paso hacia el Cabo de Hornos. El establecimiento de las primeras fronteras formales unificó a las provincias bajo una identidad común. La consolidación del territorio estuvo marcada por la necesidad de centralizar el poder en el Distrito Federal (Valdena) para coordinar la explotación de recursos, fortificar las costas meridionales y proteger las valiosas rutas comerciales que conectan la Costa Este con el resto del continente.</p>
-                
-                <h3 id="independencia">1.2 La Era de la Independencia</h3>
-                <p>El punto de inflexión de la nación ocurrió cuando las tensiones políticas con la metrópolis y el deseo de soberanía absoluta frente a la influencia externa provocaron una revolución civil y militar. Aprovechando el caos de las guerras emancipadoras americanas, y contando con el apoyo clave de la escuadra chilena, los patriotas celanienses expulsaron al último gobernador hispano, proclamando la independencia oficial el <strong>12 de febrero de 1818</strong>.</p>
-                <p>Tras una serie de batallas clave y tratados estratégicos, el país superó una convulsa era de caudillismo militar entre el norte comercial y el sur minero mediante la redacción de la <strong>Constitución de 1833</strong>, que impuso una estabilidad centralista. A partir de 1840, el descubrimiento del guano, el salitre y el carbón atrajo oleadas de inmigración masiva británica, alemana y croata, desatando una Revolución Industrial isleña. Durante la Guerra del Pacífico (1879-1885), Celania mantuvo una calculada neutralidad que favoreció el abastecimiento secreto naval en sus puertos, consolidando una burguesía opulenta a finales del siglo XIX (la <em>Belle Époque</em> celaniense) pero sembrando, al mismo tiempo, las bases de los primeros movimientos obreros y sindicales de la isla.</p>
-            </section>
-
-            <section id="gobierno">
-                <h2>2. Gobierno y política</h2>
-                <p>Celania se organiza como una república constitucional. El aparato de seguridad del Estado se fundamenta en un equilibrio de poderes civiles y militares que arrastra su doctrina desde las fortificaciones del siglo XIX: la <strong>Policía Nacional</strong> cuenta con un pie de fuerza de 210,000 agentes dedicados al orden interno, mientras que las Fuerzas Armadas operan a través del <strong>SIMC</strong> (<em>Servicio de Infantería y Marina</em>) enfocado en la defensa terrestre e insular, y el <strong>SNS</strong> (<em>Servicio Nacional de Seguridad</em>), herederos de las viejas guarniciones costeras, hoy a cargo de la soberanía aero-naval y la contrainteligencia digital.</p>
-            </section>
-
-            <section id="cultura">
-                <h2>3. Cultura</h2>
-                <p>Las tradiciones de Celania reflejan la identidad de sus ciudadanos, destacando en aspectos como el arte, las festividades nacionales y sus costumbres únicas, fuertemente influenciadas por el sincretismo entre el legado criollo y la inmigración europea decimonónica. La fecha más trascendental dentro del calendario nacional es el <strong>23 de mayo</strong> conocido popularmente en la historia como el <em>Día de los Girasoles</em>, una conmemoración histórica que paraliza el país y evoca los valores fundamentales de la patria, sirviendo frecuentemente como un catalizador de grandes movimientos sociales, discursos políticos y transformaciones en la historia viva de la República.</p>
-            </section>
-        </main>
-
-        <!-- FICHA DE PAÍS (INFOBOX) -->
-        <aside class="infobox">
-            <div class="infobox-title">República de Celania</div>
-            
-            <div class="infobox-media">
-                <img src="https://i.ibb.co/hxY8vjR6/Rep-blica-de-Celania.png" alt="Bandera de la República de Celania">
-                <div class="infobox-caption">Bandera Nacional de Celania</div>
-            </div>
-
-            <table class="infobox-table">
-                <tr>
-                    <td class="infobox-label">Capital</td>
-                    <td class="infobox-data">Valdena<br> 28°30' S 85°00' O</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Ciudad más poblada</td>
-                    <td class="infobox-data">Valdena</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Idioma oficial</td>
-                    <td class="infobox-data">Español<br>• <i>Cooficiales:</i> Lenguas indígenas locales</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Gentilicio</td>
-                    <td class="infobox-data">Celaniense</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Forma de gobierno</td>
-                    <td class="infobox-data">República federal presidencialista</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">• Presidente</td>
-                    <td class="infobox-data"><b>Sebastián Piñera Echenique</b></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">• Vicepresidenta</td>
-                    <td class="infobox-data"><b>Keiko Fujimori</b> <small><i>(encargada)</i></small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">• Salón de Rep.</td>
-                    <td class="infobox-data"><i>Vacante</i> <span class="trend-down">Disolución del Parlamento</span></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Órgano legislativo</td>
-                    <td class="infobox-data">Salón de Representantes</td>
-                </tr>
-                
-                <!-- SECCIÓN FORMACIÓN -->
-                <tr>
-                    <th colspan="2" class="infobox-header">Formación</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Provincia</td>
-                    <td class="infobox-data">14 de mayo de 1542<br><small>Fundación del primer asentamiento hispano</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Capitanía</td>
-                    <td class="infobox-data">5 de noviembre de 1779<br><small>Establecimiento de la Capitanía General</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Junta Suprema</td>
-                    <td class="infobox-data">18 de septiembre de 1810<br><small>Primera junta de gobierno autónoma</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Independencia</td>
-                    <td class="infobox-data">de España<br>12 de febrero de 1818 <small>(Proclamación formal)</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Secesión</td>
-                    <td class="infobox-data">de la República de Chile<br>11 de marzo de 1990 <small>(Separación por referéndum)</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Reconocida</td>
-                    <td class="infobox-data">24 de agosto de 1895<br><small>Por el Tratado de Paz y Amistad Internacional</small></td>
-                </tr>
-
-                <!-- SECCIÓN GEOGRAFÍA -->
-                <tr>
-                    <th colspan="2" class="infobox-header">Superficie (Puesto 22.º)</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Total</td>
-                    <td class="infobox-data">1,250,000 km²</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Agua</td>
-                    <td class="infobox-data">2.4% <br><small>Sistemas glaciares y lagos internos del sur</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Fronteras</td>
-                    <td class="infobox-data">4,993 km <br><small>Límite marítimo exclusivo con aguas sudamericanas</small></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Línea de costa</td>
-                    <td class="infobox-data">18,500 km aprox.</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Punto más alto</td>
-                    <td class="infobox-data">Macizo Central de Cirsena<br><small>4,120 m.n.m.</small></td>
-                </tr>
-
-                <!-- SECCIÓN POBLACIÓN -->
-                <tr>
-                    <th colspan="2" class="infobox-header">Población total (Puesto 40.º)</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Estimación (2031)</td>
-                    <td class="infobox-data">32,700,000 hab.</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Densidad</td>
-                    <td class="infobox-data">26.16 hab./km²</td>
-                </tr>
-
-                <!-- SECCIÓN ECONOMÍA PPA -->
-                <tr>
-                    <th colspan="2" class="infobox-header">PIB (PPA) [Puesto 58.º]</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Total (2031)</td>
-                    <td class="infobox-data"><span class="trend-up">▲ 284,520 millones de USD</span></td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Per cápita</td>
-                    <td class="infobox-data"><span class="trend-up">▲ 8,700 USD</span></td>
-                </tr>
-
-                <!-- SECCIÓN ECONOMÍA NOMINAL -->
-                <tr>
-                    <th colspan="2" class="infobox-header">PIB (nominal) [Puesto 72.º]</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Total (2031)</td>
-                    <td class="infobox-data">
-                        <span class="trend-down">▼ 1,132.01 millones de USD</span><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="infobox-label infobox-sublabel">• Per cápita</td>
-                    <td class="infobox-data">
-                        <span class="trend-down">▼ 51.45 USD</span><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">IDH (2030)</td>
-                    <td class="infobox-data">
-                        <span class="idh-box"></span> <b>0.661</b> — <span style="color: #b38600; font-weight: bold;">Medio</span><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Moneda</td>
-                    <td class="infobox-data">
-                        <b>Celán (₡)</b><br>
-                        <small>Dólar estadounidense <i>(de facto en transacciones de comercio exterior)</i></small>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Huso horario</td>
-                    <td class="infobox-data">UTC-5 <small>(Este/Capital)</small> y UTC-6 <small>(Oeste)</small></td>
-                </tr>
-
-                <!-- SECCIÓN CÓDIGOS -->
-                <tr>
-                    <th colspan="2" class="infobox-header">Códigos internacionales</th>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Código ISO</td>
-                    <td class="infobox-data">026 / CLN / CE</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Dominio internet</td>
-                    <td class="infobox-data">.cln / .ce</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Prefijo telefónico</td>
-                    <td class="infobox-data">+562</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Prefijo radiofónico</td>
-                    <td class="infobox-data">CLN-VAL-026</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Siglas aeronaves</td>
-                    <td class="infobox-data">CLN</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Siglas automóviles</td>
-                    <td class="infobox-data">CLN</td>
-                </tr>
-                <tr>
-                    <td class="infobox-label">Código del COI</td>
-                    <td class="infobox-data">CLN</td>
-                </tr>
-            </table>
-        </aside>
-
-    </div>
-
-</body>
-</html>
