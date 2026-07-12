@@ -14,7 +14,7 @@
             --link-color: #3366cc;
             --border-wiki: #a2a9b1;
             --border-sub: #eaecf0;
-            --infobox-header: #eaecf0;
+            --infobox-header: #f2f2f2;
         }
 
         * { box-sizing: border-box; }
@@ -55,7 +55,6 @@
         .sidebar ul { list-style: none; padding: 0; margin: 0; }
         .sidebar li { margin-bottom: 8px; font-size: 13px; }
         .sidebar a { color: var(--link-color); text-decoration: none; }
-        .sidebar a:hover { text-decoration: underline; }
 
         main { flex: 1; background: var(--bg-content); padding: 24px 20px; border-left: 1px solid var(--border-wiki); min-width: 0; }
         .article-title { font-family: 'Linux Libertine', 'Georgia', serif; font-size: 30px; font-weight: normal; border-bottom: 1px solid var(--border-wiki); padding-bottom: 3px; margin-top: 0; margin-bottom: 5px; }
@@ -65,50 +64,56 @@
         @media (min-width: 992px) {
             .content-layout { flex-direction: row; }
             .body-text { flex: 3; }
-            .infobox { flex: 1; min-width: 335px; max-width: 335px; }
+            .infobox { flex: 1; min-width: 340px; max-width: 340px; }
         }
 
         p { margin: 0 0 16px 0; text-align: justify; }
         h2 { font-family: 'Linux Libertine', 'Georgia', serif; font-weight: normal; font-size: 22px; border-bottom: 1px solid var(--border-wiki); padding-bottom: 4px; margin-top: 32px; margin-bottom: 12px; }
 
-        /* INFOBOX */
-        .infobox { background: #f8f9fa; border: 1px solid var(--border-wiki); padding: 3px; font-size: 12px; height: fit-content; width: 100%; }
-        .infobox-nav { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 4px 5px; border-bottom: 1px solid var(--border-wiki); }
-        .infobox-flag { width: 34px; height: 22px; border: 1px solid var(--border-wiki); }
-        .infobox-title { text-align: center; font-size: 15px; font-weight: bold; padding: 8px 0 4px 0; }
-        .infobox-subtitle { text-align: center; font-size: 12px; margin-bottom: 8px; color: var(--text-muted); }
+        /* WIKIPEDIA VERTICAL INFOBOX (ESTILO VENEZUELA 2000) */
+        .infobox { background: #f8f9fa; border: 1px solid var(--border-wiki); padding: 5px; font-size: 13px; height: fit-content; width: 100%; color: #000; }
+        .infobox-nav { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 2px 5px; color: #54595d; }
+        .infobox-nav a { color: var(--link-color); text-decoration: none; }
+        .infobox-flag { width: 50px; height: 30px; border: 1px solid var(--border-wiki); object-fit: cover; }
+        .infobox-title { text-align: center; font-size: 16px; font-weight: bold; padding: 6px 0 2px 0; line-height: 1.2; }
+        .infobox-subtitle { text-align: center; font-size: 12px; margin-bottom: 8px; color: #222; }
+        .infobox-subtitle a { color: var(--link-color); text-decoration: none; }
         
-        .infobox-table { width: 100%; border-collapse: collapse; }
-        .infobox-table td { padding: 4px; vertical-align: middle; }
-        .infobox-label { font-weight: bold; text-align: left; }
-        .infobox-data { text-align: right; }
-        .infobox-section-title { text-align: center; font-weight: bold; padding: 6px 0; border-top: 1px solid var(--border-wiki); background: #eaecf0; margin-top: 5px; }
+        .infobox-table { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
+        .infobox-table td { padding: 3px 5px; vertical-align: top; font-size: 13px; }
+        .infobox-label { font-weight: bold; text-align: left; width: 45%; color: #222; }
+        .infobox-data { text-align: right; width: 55%; color: #000; }
+        
+        .infobox-section-title { text-align: center; font-weight: bold; font-size: 14px; padding: 5px 0; border-top: 1px solid var(--border-wiki); border-bottom: 1px solid var(--border-wiki); background: transparent; margin: 8px 0 4px 0; }
 
-        /* NUEVAS BARRAS DE PROGRESO CORREGIDAS Y MÁS GRANDES */
-        .wiki-progress-wrapper { width: 100%; height: 20px; background-color: #e8e8e8; border: 1px solid #b0b0b0; padding: 2px; position: relative; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); }
-        .wiki-progress-inner { height: 100%; width: 100%; }
-        .wiki-progress-text { position: absolute; right: 6px; top: 0; font-size: 11px; font-weight: bold; color: #000; line-height: 18px; z-index: 2; }
+        /* DISEÑO DE BARRAS SOLICITADO (RECTÁNGULO DELGADO DENTRO) */
+        .wiki-bar-container { display: inline-block; width: 130px; height: 18px; background-color: #ffffff; border: 1px solid #777777; padding: 2px; vertical-align: middle; }
+        .wiki-bar-fill { height: 100%; }
 
-        /* TABLA DE CANDIDATOS */
-        .candidates-table { width: 100%; border-collapse: collapse; margin-top: 4px; table-layout: fixed; }
-        .candidates-table td { text-align: center; vertical-align: top; padding: 4px 2px; font-size: 11px; }
+        /* BLOQUES DE CANDIDATOS DESCENDENTES */
+        .cand-row-container { display: flex; padding: 8px 4px; border-bottom: 1px solid var(--border-sub); align-items: flex-start; gap: 8px; }
+        .cand-row-container.top-border { border-top: 3px solid #c00; }
+        .cand-row-container.mid-border { border-top: 3px solid #0056b3; }
+        .cand-row-container.low-border { border-top: 3px solid #ffcc00; }
         
-        .cand-color-line { height: 6px; width: 100%; margin-bottom: 4px; }
-        .cand-photo { width: 75px; height: 90px; border: 1px solid var(--border-wiki); object-fit: cover; margin: 0 auto 4px auto; display: block; }
-        .cand-name { font-weight: bold; font-size: 12px; line-height: 1.2; display: block; margin-bottom: 2px; }
-        .cand-name a { color: var(--link-color); text-decoration: none; }
-        .cand-party { color: var(--text-muted); font-size: 10px; display: block; min-height: 24px; }
+        .cand-row-photo { width: 60px; height: 75px; border: 1px solid var(--border-wiki); object-fit: cover; flex-shrink: 0; }
+        .cand-row-details { flex: 1; font-size: 13px; }
+        .cand-row-header { margin-bottom: 4px; font-size: 13px; }
+        .cand-row-name { font-weight: bold; color: var(--link-color); text-decoration: none; }
+        .cand-row-name:hover { text-decoration: underline; }
+        .cand-row-party { color: #222; }
         
-        .cand-votes { font-size: 11px; display: block; margin-top: 4px; }
-        .cand-percent { font-size: 13px; font-weight: bold; display: block; margin-bottom: 4px; }
+        .cand-row-stats-table { width: 100%; border-collapse: collapse; margin-top: 2px; }
+        .cand-row-stats-table td { padding: 1px 0; font-size: 13px; }
 
         /* LEYENDA Y MAPA */
-        .wiki-map-legend { display: flex; justify-content: space-around; padding: 6px; background: #fff; border: 1px solid var(--border-sub); font-size: 11px; margin-top: 4px; }
+        .wiki-map-legend { display: flex; justify-content: space-around; padding: 6px; font-size: 12px; margin-top: 4px; border-bottom: 1px solid var(--border-wiki); }
         .legend-item { display: flex; align-items: center; gap: 4px; }
-        .color-box { width: 12px; height: 12px; border: 1px solid #000; }
+        .color-box { padding: 1px 5px; font-weight: bold; color: #fff; font-size: 11px; }
 
-        .footer-transition-wiki { width: 100%; border-collapse: collapse; margin-top: 8px; border: 1px solid var(--border-wiki); font-size: 11px; }
-        .footer-transition-wiki th { background: #eaecf0; padding: 4px; border-bottom: 1px solid var(--border-wiki); text-align: center; }
+        /* SECCIÓN INFERIOR DE PRESTIGIO */
+        .footer-transition-wiki { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 5px; }
+        .footer-transition-wiki td { width: 50%; padding: 4px; vertical-align: top; }
     </style>
 </head>
 <body>
@@ -132,7 +137,7 @@
             </ul>
         </nav>
 
-        <main>
+<main>
             <h1 class="article-title">Elecciones presidenciales de Celania de 2019</h1>
             <div class="article-subtitle">De WikiCelania, la enciclopedia libre.</div>
             
@@ -147,123 +152,164 @@
                     <p>La jornada electoral concluyó con una participación histórica del 66.69% de los electores registrados. La candidata Beatriz Sánchez obtuvo una victoria matemática exacta del 50.00% de los votos válidos. Su principal contendiente, José Páez del oficialismo (FCC), logró adjudicarse la victoria en 8 estados clave del cordón industrial, pero no fue suficiente para superar la densa votación obtenida por la UP en los 14 estados restantes del territorio, consolidando así el cambio de gobierno para el periodo constitucional correspondiente.</p>
                 </div>
 
-                <!-- INFOBOX TOTALMENTE REDISEÑADO -->
+                <!-- INFOBOX TOTALMENTE ADAPTADO AL ESTILO VENEZUELA 2000 -->
                 <aside class="infobox">
                     <div class="infobox-nav">
-                        <span>← <a href="#">2015</a></span>
+                        <span>← 2015</span>
                         <img class="infobox-flag" src="https://i.ibb.co/hxY8vjR6/Rep-blica-de-Celania.png" alt="Bandera de Celania">
-                        <span><a href="#">2023</a> →</span>
+                        <span>2023 →</span>
                     </div>
                     
                     <div class="infobox-title">Elecciones presidenciales de<br>Celania de 2019</div>
-                    <div class="infobox-subtitle">Presidente para el período 2019-2023</div>
+                    <div class="infobox-subtitle"><a href="#">Presidente</a> para el período 2019-2023</div>
 
                     <table class="infobox-table">
                         <tr>
                             <td class="infobox-label">Fecha</td>
-                            <td class="infobox-data">18 de agosto de 2019</td>
+                            <td class="infobox-data">Domingo 18 de agosto de 2019</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Tipo</td>
+                            <td class="infobox-data">Presidencial</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Período</td>
+                            <td class="infobox-data">11 de marzo de 2019 al<br>11 de marzo de 2023</td>
                         </tr>
                     </table>
 
                     <div class="infobox-section-title">Demografía electoral</div>
                     <table class="infobox-table">
                         <tr>
-                            <td class="infobox-label">Reg. electorales</td>
+                            <td class="infobox-label">Población</td>
+                            <td class="infobox-data">30 100 000</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label">Hab. registrados</td>
                             <td class="infobox-data">17 157 000</td>
                         </tr>
                         <tr>
-                            <td class="infobox-label">Votos emitidos</td>
+                            <td class="infobox-label">Votantes</td>
                             <td class="infobox-data">11 442 003</td>
                         </tr>
                         <tr>
-                            <td class="infobox-label" style="padding-bottom: 2px;">Participación</td>
-                            <td class="infobox-data" style="font-weight: bold; padding-bottom: 2px;">66.69%</td>
+                            <td class="infobox-label">Participación</td>
+                            <td class="infobox-data" style="text-align:right; white-space: nowrap;">
+                                <div class="wiki-bar-container">
+                                    <div class="wiki-bar-fill" style="background-color: #008000; width: 66.69%;"></div>
+                                </div>
+                                <span style="display:inline-block; width:45px; text-align:right; font-weight:bold; margin-left:3px;">66.69 %</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="padding: 2px 4px 6px 4px;">
-                                <!-- NUEVA BARRA DE PARTICIPACIÓN CON RECTÁNGULO FLOTANTE -->
-                                <div class="wiki-progress-wrapper">
-                                    <div class="wiki-progress-inner" style="background-color: #008000; width: 66.69%;"></div>
-                                    <div class="wiki-progress-text">66.69%</div>
-                                </div>
-                            </td>
+                            <td class="infobox-label" style="font-weight:normal; font-size:12px; padding-left:10px;">Votos válidos</td>
+                            <td class="infobox-data" style="font-size:12px;">11 152 050</td>
+                        </tr>
+                        <tr>
+                            <td class="infobox-label" style="font-weight:normal; font-size:12px; padding-left:10px;">Votos nulos</td>
+                            <td class="infobox-data" style="font-size:12px;">289 953</td>
                         </tr>
                     </table>
 
-                    <div class="infobox-section-title">Resultados Candidatos</div>
+                    <div class="infobox-section-title">Resultados</div>
+                    
+                    <!-- CANDIDATO 1 DESCENDENTE -->
+                    <div class="cand-row-container top-border">
+                        <img class="cand-row-photo" src="https://i.ibb.co/KjFc6MC9/1782972355338.jpg" alt="Beatriz Sánchez">
+                        <div class="cand-row-details">
+                            <div class="cand-row-header">
+                                <a class="cand-row-name" href="#">Beatriz Sánchez</a> – <span class="cand-row-party"><b>UP</b></span>
+                            </div>
+                            <table class="cand-row-stats-table">
+                                <tr>
+                                    <td>Votos</td>
+                                    <td style="text-align: right; font-weight: bold;">5 576 025</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right; padding-top:2px;">
+                                        <div class="wiki-bar-container">
+                                            <div class="wiki-bar-fill" style="background-color: #c00; width: 50.00%;"></div>
+                                        </div>
+                                        <span style="display:inline-block; width:45px; font-weight:bold; margin-left:3px;">50.00 %</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
 
-                    <!-- TABLA COMPARTIDA HORIZONTAL CON NUEVO FORMATO DE BARRAS -->
-                    <table class="candidates-table">
-                        <tr>
-                            <td><div class="cand-color-line" style="background-color: #c00;"></div></td>
-                            <td><div class="cand-color-line" style="background-color: #0056b3;"></div></td>
-                            <td><div class="cand-color-line" style="background-color: #ffcc00;"></div></td>
-                        </tr>
-                        <tr>
-                            <td><img class="cand-photo" src="https://i.ibb.co/KjFc6MC9/1782972355338.jpg" alt="Sánchez"></td>
-                            <td><img class="cand-photo" src="https://i.ibb.co/N2G87hXd/1782972338093.jpg" alt="Páez"></td>
-                            <td><img class="cand-photo" src="https://i.ibb.co/wDP4kGj/1782972382441.jpg" alt="Allamand"></td>
-                        </tr>
-                        <tr>
-                            <td><span class="cand-name"><a href="#">B. Sánchez</a></span></td>
-                            <td><span class="cand-name"><a href="#">José Páez</a></span></td>
-                            <td><span class="cand-name"><a href="#">A. Allamand</a></span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="cand-party">Unión Popular</span></td>
-                            <td><span class="cand-party">Conv. Civil</span></td>
-                            <td><span class="cand-party">Alianza Patria</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="cand-percent">50.00%</span></td>
-                            <td><span class="cand-percent">37.50%</span></td>
-                            <td><span class="cand-percent">12.50%</span></td>
-                        </tr>
-                        <tr>
-                            <!-- NUEVAS BARRAS DE PARTICIPANTES MÁS GRANDE + MARGEN INTERIOR -->
-                            <td>
-                                <div class="wiki-progress-wrapper">
-                                    <div class="wiki-progress-inner" style="background-color: #c00; width: 50.00%;"></div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="wiki-progress-wrapper">
-                                    <div class="wiki-progress-inner" style="background-color: #0056b3; width: 37.50%;"></div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="wiki-progress-wrapper">
-                                    <div class="wiki-progress-inner" style="background-color: #ffcc00; width: 12.50%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span class="cand-votes">5 576 025</span></td>
-                            <td><span class="cand-votes">4 182 019</span></td>
-                            <td><span class="cand-votes">1 394 006</span></td>
-                        </tr>
-                    </table>
+                    <!-- CANDIDATO 2 DESCENDENTE -->
+                    <div class="cand-row-container mid-border">
+                        <img class="cand-row-photo" src="https://i.ibb.co/N2G87hXd/1782972338093.jpg" alt="José Páez">
+                        <div class="cand-row-details">
+                            <div class="cand-row-header">
+                                <a class="cand-row-name" href="#">José Páez</a> – <span class="cand-row-party">FCC</span>
+                            </div>
+                            <table class="cand-row-stats-table">
+                                <tr>
+                                    <td>Votos</td>
+                                    <td style="text-align: right;">4 182 019</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right; padding-top:2px;">
+                                        <div class="wiki-bar-container">
+                                            <div class="wiki-bar-fill" style="background-color: #0056b3; width: 37.50%;"></div>
+                                        </div>
+                                        <span style="display:inline-block; width:45px; font-weight:bold; margin-left:3px;">37.50 %</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
 
-                    <div class="infobox-section-title">Resultados por estado</div>
+                    <!-- CANDIDATO 3 DESCENDENTE -->
+                    <div class="cand-row-container low-border">
+                        <img class="cand-row-photo" src="https://i.ibb.co/wDP4kGj/1782972382441.jpg" alt="Andrés Allamand">
+                        <div class="cand-row-details">
+                            <div class="cand-row-header">
+                                <a class="cand-row-name" href="#">Andrés Allamand</a> – <span class="cand-row-party">AP</span>
+                            </div>
+                            <table class="cand-row-stats-table">
+                                <tr>
+                                    <td>Votos</td>
+                                    <td style="text-align: right;">1 394 006</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right; padding-top:2px;">
+                                        <div class="wiki-bar-container">
+                                            <div class="wiki-bar-fill" style="background-color: #ffcc00; width: 12.50%;"></div>
+                                        </div>
+                                        <span style="display:inline-block; width:45px; font-weight:bold; margin-left:3px;">12.50 %</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="infobox-section-title">Vencedor por estado</div>
                     <div style="text-align: center; padding: 5px 0; background: #fff;">
-                        <img style="width: 100%; max-width: 310px; height: auto; display: block; margin: 0 auto;" src="https://i.ibb.co/8DqhCQ8v/Santiago-P-ez-20260702-003001-0000.png" alt="Mapa electoral">
+                        <img style="width: 100%; max-width: 260px; height: auto; display: block; margin: 0 auto;" src="https://i.ibb.co/8DqhCQ8v/Santiago-P-ez-20260702-003001-0000.png" alt="Mapa electoral">
                     </div>
                     
                     <div class="wiki-map-legend">
-                        <div class="legend-item"><div class="color-box" style="background-color: #c00;"></div> 14 estados</div>
-                        <div class="legend-item"><div class="color-box" style="background-color: #0056b3;"></div> 8 estados</div>
+                        <div class="legend-item"><span class="color-box" style="background-color: #c00;">14</span> Sánchez</div>
+                        <div class="legend-item">Páez <span class="color-box" style="background-color: #0056b3;">8</span></div>
+                    </div>
+
+                    <!-- SECCIÓN FINAL CON ESCUDO CENTRAL -->
+                    <div style="text-align:center; padding-top:10px;">
+                        <img src="https://i.ibb.co/hxY8vjR6/Rep-blica-de-Celania.png" style="width:40px; height:auto; border-radius:50%;" alt="Escudo de Celania">
+                        <div style="font-weight:bold; color:var(--link-color); margin-top:5px; font-size:13px;">Presidente de la República de Celania</div>
                     </div>
 
                     <table class="footer-transition-wiki">
                         <tr>
-                            <th colspan="2">Presidente de la República</th>
-                        </tr>
-                        <tr>
-                            <td style="padding: 5px; text-align: left;">
-                                <small>Titular saliente</small><br><b>E. Briceño</b> (FCC)
+                            <td style="text-align: left;">
+                                <small>Titular</small><br>
+                                <span style="color:var(--link-color)">Enrique Briceño</span>
                             </td>
-                            <td style="padding: 5px; text-align: right;">
-                                <small>Electo</small><br><b>B. Sánchez</b> (UP)
+                            <td style="text-align: right;">
+                                <small>Electo</small><br>
+                                <span style="color:var(--link-color)">Beatriz Sánchez</span>
                             </td>
                         </tr>
                     </table>
@@ -273,4 +319,3 @@
     </div>
 </body>
 </html>
-    
